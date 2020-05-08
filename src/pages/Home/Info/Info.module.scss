@@ -1,0 +1,103 @@
+.container {
+  width: 700px;
+  background: rgba(253, 253, 253, 1);
+  border-radius: 5px;
+
+  .header {
+    width: 600px;
+    padding: 16px 24px;
+
+    .title {
+      font-size: 15px;
+      font-family: Microsoft YaHei;
+      font-weight: 400;
+      color: rgba(118, 115, 115, 1);
+      line-height: 30px;
+    }
+
+    .headerInfo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .icon {
+        width: 272px;
+        height: 184px;
+      }
+
+      .basicInfo {
+        width: 300px;
+        margin-left: 20px;
+
+        .timeAndAddr {
+          &>div {
+            margin-bottom: 10px;
+          }
+        }
+
+        .btnGroup {
+          font-size: 20px;
+          display: flex;
+          align-items: center;
+          .favorite{
+            width: 40px;
+          }
+          .btn {
+            position: relative;
+            margin-left: 25px;
+          }
+        }
+      }
+    }
+
+
+
+  }
+
+
+
+  .meetingNormal {
+    padding-right: 40px;
+    h2 {
+      font-size: 15px;
+      font-family: Microsoft YaHei;
+      color: rgb(41, 147, 235);
+      line-height: 40px;
+      text-align: center;
+      padding-left: 80px;
+    }
+
+    div {
+      margin-left: -30px;
+      &>div{
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .meetingInfo {
+    @extend .meetingNormal;
+    margin-top: 30px;
+  }
+
+  .meetingGuest {
+    @extend .meetingNormal;
+  }
+
+  .meetingVolunteer {
+    @extend .meetingNormal;
+  }
+}
+
+
+
+.star {
+  cursor: pointer;
+  // font-size: 20px;
+  margin-left: 20px;
+}
+
+.starFiled {
+  @extend .star;
+  color: rgba(255, 190, 14, 1);
+}

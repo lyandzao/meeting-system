@@ -1,0 +1,58 @@
+@import '@/styles/global.img.scss';
+
+.container {
+  width: 700px;
+  background-color: #ffffff;
+
+  .header {
+    width: 600px;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .title {
+      font-size: 15px;
+      font-family: Microsoft YaHei;
+      font-weight: 400;
+      color: rgba(118, 115, 115, 1);
+      line-height: 30px;
+    }
+
+    .meetingIcon {
+      width: 272px;
+      height: 184px;
+      background: url($infoDetail);
+      background-size: 272px 184px;
+    }
+
+    .info {
+      width: 300px;
+      margin-left: 20px;
+      &>div{
+        margin-top: 20px;
+      }
+    }
+  }
+
+}
+
+.btn {
+  height: 24px;
+  width: 60px;
+}
+
+.star {
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.starFiled {
+  @extend .star;
+  color: rgba(255, 190, 14, 1);
+}
+
+.fileList{
+  width: 400px;
+  padding: 16px 24px;
+}

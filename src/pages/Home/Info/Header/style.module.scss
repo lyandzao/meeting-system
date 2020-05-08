@@ -1,0 +1,45 @@
+.container {
+  width: 700px;
+  background: rgba(253, 253, 253, 1);
+  border-radius: 5px;
+
+  .header {
+    width: 600px;
+    padding: 16px 24px;
+
+    .title {
+      font-size: 15px;
+      font-family: Microsoft YaHei;
+      font-weight: 400;
+      color: rgba(118, 115, 115, 1);
+      line-height: 30px;
+    }
+
+    .headerInfo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .icon {
+        width: 272px;
+        height: 184px;
+      }
+
+      .basicInfo {
+        width: 300px;
+        margin-left: 20px;
+
+        .timeAndAddr {
+          &>div {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+
+
+
+  }
+}
+
+
