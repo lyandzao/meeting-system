@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Router from '@/router';
-import request from '@/services/umi';
+import request from '@/services/axios/config';
 import auth from '@/store/auth';
 import systemMsg from '@/store/systemMsg';
 import composeContainer from '@/utils/composeContainer';

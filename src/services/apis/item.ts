@@ -1,5 +1,5 @@
 import * as config from './config'
-import { get, post } from '../umi/method'
+import { get, post } from '../axios'
 
 export interface Iitem {
   meetingid?: number;
@@ -33,7 +33,7 @@ export const publishItem = (meetingJson: Iitem, taskJson?: any) => post(config.A
  */
 export const getHomeItemList = (offset: number, limit: number) => {
   return get(
-    config._GET_MEETING_Time_Sort_PAGE_DATA,
+    config._GET_MEETING_HOME_PAGE_DATA,
     { params: { offset, limit } })
 }
 
@@ -59,6 +59,11 @@ export const uploadItemIcon = (meetingId: number, icon: any) => {
  * 获取会议类型
  */
 export const getItemTypes = () => get(config._GET_MEETING_TYPE)
+
+/**
+ * 获取会议总数
+ */
+export const getItemCount=()=>post(config.MEETING_COUNT)
 
 /**
  * 根据会议类型获得列表

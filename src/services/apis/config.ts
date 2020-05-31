@@ -37,6 +37,7 @@ export const UPLOAD_MEETING_ICON = '/meetingIcon/'; // {meeting}路径
 /**
  * 会议相关接口
  */
+export const MEETING_COUNT = '/meeting/count'; // 会议总数
 export const PUBLISH_MEETING = '/meeting/add'; // 发布会议
 export const ADD_MEETING_INFO = '/meeting/put'; // 添加会议信息(文本部分)
 export const _GET_MEETING_INFO = '/meeting/'; // {meetingId}路径,根据会议id得到会议详细信息

@@ -1,5 +1,5 @@
 import * as config from './config'
-import { get, post } from '../umi/method'
+import { get, post } from '../axios'
 
 interface IuserJson {
   username?: string;

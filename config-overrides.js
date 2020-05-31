@@ -21,11 +21,11 @@ const devServerConfig = () => config => {
     //   }
     // }
     proxy: {
-      '/meeting-v2/**': {
+      '/meeting/**': {
         target: 'http://www.ljhhhx.com:8080',
         changeOrigin: true,
         pathRewrite: {
-          '^/meeting-v2': '/meeting-v2'
+          '^/meeting': '/meeting'
         }
       }
     }

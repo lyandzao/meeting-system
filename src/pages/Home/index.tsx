@@ -18,7 +18,8 @@ import { useRequest, useUnmount } from '@umijs/hooks';
 import {
   getHomeItemList,
   getItemTypes,
-  getHomeItemListByCondition
+  getHomeItemListByCondition,
+  getItemCount
 } from '@/services/apis/item';
 
 
@@ -37,11 +38,11 @@ function Home({ }: Props): ReactElement {
   const [meetingList, setMeetingList] = useState<any[]>() // item的数据
   const [typeList, setTypeList] = useState<any[]>() // 类别
 
-  const meetingNumR = useRequest(getHomeItemListByCondition, {
+  const meetingNumR = useRequest(getItemCount, {
     cacheKey: 'meetingNum',
     onSuccess: (result, params) => {
       if (result.data) {
-        setMeetingNum(result.data.meetings.length)
+        setMeetingNum(result.data.count)
       }
     },
     onError: (result, params) => {

@@ -1,5 +1,5 @@
 import * as config from './config'
-import { get, post,deleteFile } from '../umi/method'
+import { get, post,deleteFile } from '../axios'
 
 /**
  * 上传文件

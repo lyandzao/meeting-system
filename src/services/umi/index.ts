@@ -6,7 +6,7 @@ import {isUndefined,isNull} from 'lodash'
 const isDev = process.env.NODE_ENV === 'development'
 
 const envUrl = () => {
-  return isDev ? '/meeting-v2' : ''
+  return isDev ? '/meeting' : ''
 }
 
 // 统一处理错误
@@ -50,7 +50,7 @@ const errorHandler = (error: ResponseError) => {
 // 配置umi的全局配置
 request.extendOptions({
   prefix: envUrl(),
-  timeout: 15000,
+  timeout: 5000,
   errorHandler,
   requestType: 'form',
 })
