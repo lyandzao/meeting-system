@@ -1,0 +1,1 @@
+{"version":3,"sources":["Msg.module.scss"],"names":[],"mappings":"AAAA,qBAEI,eAAgB,CAFpB,iCAKI,eAAgB","file":"20.ed8d25c1.chunk.css","sourcesContent":[".form{\r\n  div{\r\n    margin-top: 20px;\r\n  }\r\n  .btn{\r\n    margin-top: 32px;\r\n  }\r\n}\r\n\r\n\r\n"]}
