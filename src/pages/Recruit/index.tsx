@@ -10,7 +10,6 @@ interface Props {
 
 function Recruit({ }: Props): ReactElement {
   return (
-
     <RecruitBar className={style.container} />
   )
 }

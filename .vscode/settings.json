@@ -1,0 +1,30 @@
+{
+  "cSpell.words": [
+    "antd",
+    "browserslist",
+    "esnext",
+    "immer",
+    "signup",
+    "umijs"
+  ],
+  "cSpell.ignoreWords": [
+    "content",
+    "emailaddr",
+    "export",
+    "gender",
+    "interface",
+    "interface iuser json username string gender emailaddr phone password export msg content isread number msgid sendfrom sendto",
+    "isread",
+    "iuser",
+    "json",
+    "msg",
+    "msgid",
+    "number",
+    "password",
+    "phone",
+    "sendfrom",
+    "sendto",
+    "string",
+    "username"
+  ]
+}

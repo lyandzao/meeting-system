@@ -14,7 +14,7 @@ export const uploadFiles = (formData: any) => post(config.UPLOAD_FILE, { data: f
  * @param fileName 
  */
 export const downloadFile = (meetingId: number, fileName: string) => get(
-  config._DOWNLOAD_DILE,
+  config._DOWNLOAD_FILE,
   {
     params: { meetingId, fileName },
     responseType: 'blob'

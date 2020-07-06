@@ -5,17 +5,10 @@ import axios, {
   AxiosResponse,
 } from 'axios';
 import { message } from 'antd'
-import { isUndefined, isNull } from 'lodash'
 import qs from 'qs'
 import {checkStatus} from '@/utils'
 
-// 判断开发环境
-const isDev = process.env.NODE_ENV === 'development'
-
-const envUrl = () => {
-  return isDev ? '/meeting' : ''
-}
-
+const envUrl = process.env.REACT_APP_API_ENV
 
 interface IReqConfig {
   token: string;
@@ -38,7 +31,7 @@ const instance: AxiosInstance = axios.create({
     'token': ''
   },
   withCredentials: true,
-  baseURL: envUrl()
+  baseURL: envUrl
 })
 
 /**
@@ -92,7 +85,12 @@ instance.interceptors.request.use((config: AxiosRequestConfig) => {
  * 响应拦截
  * @description 处理请求错误
  */
-instance.interceptors.response.use((response: AxiosResponse) => {
+instance.interceptors.response.use(
+  (response: AxiosResponse) => {
+  if (response.headers['content-type'] === 'application/octet-stream') {
+    response.config.responseType = 'blob'
+    return response
+  }
   const { code } = response.data || {};
   if (code < 0) {
     message.error(response.data.message || '请求失败,请稍候重试...')

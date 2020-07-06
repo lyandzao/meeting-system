@@ -1,15 +1,16 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 
 import {
   message,
   Spin,
+  Modal
 } from 'antd';
 
 import Button from '@/components/commons/Button';
 import Input from '@/components/forms/Input/Input';
 import Textarea from '@/components/forms/Textarea';
 import { useChange } from '@/hooks';
-import { publishItem } from '@/services/apis/item';
+import { publishItem, Itask, Iguest } from '@/services/apis/item';
 import { useRequest, useBoolean, useDebounceFn } from '@umijs/hooks';
 import { meetingTypes } from '@/constant'
 import validate from '@/utils/validate';
@@ -17,6 +18,10 @@ import { useImmer } from 'use-immer'
 import style from './style.module.scss';
 
 interface Props {
+
+}
+
+const TaskFactory = () => {
 
 }
 
@@ -30,6 +35,10 @@ function Publish({ }: Props): ReactElement {
   const communicate = useChange('')
   const needNum = useChange('')
   const claim = useChange('')
+  const [showModal, setShowModal] = useState(false)
+  const [taskArr, setTaskArr] = useImmer<Itask[]>([])
+  const voluntInfo = useChange('')
+  const voluntTime = useChange('')
   const validateRight = useBoolean(false)
   const [validateMsg, setValidateMsg] = useImmer({
     mName: { msg: '请输入会议名称', warn: false, isRight: false },
@@ -40,11 +49,6 @@ function Publish({ }: Props): ReactElement {
   })
   const publishItemR = useRequest(publishItem, {
     manual: true,
-    onSuccess: (result, params) => {
-      if (result.code >= 0) {
-        message.success('发布成功')
-      }
-    }
   })
   const validateForm = {
     validateName: () => {
@@ -145,6 +149,20 @@ function Publish({ }: Props): ReactElement {
       validateRight.setFalse()
     }
   }, 300)
+  const addTask = () => {
+    setTaskArr(draft => {
+      draft.push({
+        taskinfo: voluntInfo.value,
+        workingtime: voluntTime.value,
+        numbers: needNum.value
+      })
+    })
+    voluntInfo.value = ''
+    voluntTime.value = ''
+    needNum.value = ''
+    setShowModal(false)
+    message.success('添加任务成功')
+  }
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault()
     if (validateRight.state) {
@@ -152,14 +170,14 @@ function Publish({ }: Props): ReactElement {
         mName: name.value,
         location: location.value,
         startTime: startTime.value,
-        closeTime:closeTime.value,
+        closeTime: closeTime.value,
         introduction: introduction.value,
         organizer: organizer.value,
         communicate: communicate.value,
         needvolunteer: needNum.value,
         schedule: claim.value,
-        typeid: meetingTypes.studentTeams,
-      })
+        // typeid: meetingTypes.studentTeams,
+      }, taskArr)
     }
 
   }
@@ -180,7 +198,34 @@ function Publish({ }: Props): ReactElement {
         <Textarea bind={claim} name='时间表' />
         <Input type='text' bind={organizer} name='主办单位' />
         <Input type='text' bind={communicate} name='联系方式' />
-        <Input type='text' bind={needNum} name='招募志愿者人数' />
+        <Modal
+          title={'添加志愿任务'}
+          visible={showModal}
+          onOk={addTask}
+          onCancel={() => setShowModal(false)}
+        >
+          <Input type='text' bind={needNum} name='招募志愿者人数' />
+          <br />
+          <Textarea bind={voluntInfo} name='志愿详情' />
+          <br />
+          <Input type='text' bind={voluntTime} name='志愿时长' />
+        </Modal>
+        {
+          taskArr.length !== 0 && taskArr.map((item, index) => {
+            return (
+              <div key={`task${index + 1}`} className={style.modal}>
+                <div className={style.tt}>任务{index + 1}</div>
+                <div className={style.form}>
+                  <Input type='text' value={item.numbers} readOnly name='招募志愿者人数' />
+                  <Textarea value={item.taskinfo} readOnly name='志愿详情' />
+                  <Input type='text' value={item.workingtime} readOnly name='志愿时长' />
+                </div>
+
+              </div>
+            )
+          })
+        }
+        <Button type='submit' value='添加任务' className={style.btn} onClick={() => setShowModal(true)} />
         <Button type='submit' value='发布' className={style.btn} disabled={!validateRight.state} loading={publishItemR.loading} />
       </form>
     </Spin>

@@ -1,0 +1,38 @@
+.container {
+margin-top: 27px;
+display: flex;
+flex-direction: column;
+align-items: center;
+&>div{
+  margin-bottom: 28px;
+}
+  .c1,
+  .c2,
+  .c3 {
+    width: 600px;
+    min-height: 300px;
+    background: rgba(253, 253, 253, 1);
+    border-radius: 5px;
+    padding: 12px 24px;
+    position: relative;
+
+    .tt {
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(91, 91, 91, 1);
+    }
+
+    .btn {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin: 40px;
+    }
+  }
+}
+
+.modal{
+  &>div{
+    margin-bottom: 10px;
+  }
+}

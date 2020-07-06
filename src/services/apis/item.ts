@@ -16,6 +16,19 @@ export interface Iitem {
   communicate?: string;
 }
 
+export interface Itask{
+  taskinfo?: string;
+  workingtime?: string;
+  numbers?: string;
+}
+
+export interface Iguest{
+  introduction?: string;
+  name?: string;
+  ico?: any;
+}
+
+
 
 /**
  * 发布会议
@@ -23,7 +36,23 @@ export interface Iitem {
  * @param volunt 志愿者json
  * @param guests 嘉宾json
  */
-export const publishItem = (meetingJson: Iitem, taskJson?: any) => post(config.ADD_MEETING_INFO, { data: { meetingJson: encodeURIComponent(JSON.stringify(meetingJson)), taskJson }, msg: '发布成功' })
+export const publishItem = (meetingJson: Iitem, taskJson: Itask[] = [], guestJson:Iguest= {}) => post(config.ADD_MEETING_INFO,
+  {
+    data: {
+      meetingJson: encodeURIComponent(JSON.stringify(meetingJson)),
+      taskJson: encodeURIComponent(JSON.stringify(taskJson)),
+      guestJson: encodeURIComponent(JSON.stringify(guestJson))
+    }, msg: '发布成功'
+  })
+
+export const addGuest = (meetingId: string, introduction: string, name: string, ico: any) => post(config.ADD_GUEST, {
+  data: {
+    meetingId,
+    introduction,
+    name,
+    ico
+    }
+  })
 
 /**
  * 获取主页会议列表
@@ -69,7 +98,7 @@ export const getItemCount=()=>post(config.MEETING_COUNT)
  * 根据会议类型获得列表
  * @param type 会议类型
  */
-export const getHomeItemListByCondition = (type?: number) => get(config._SEARCH_MEETING_CONFITION, { params: { type } })
+export const getHomeItemListByCondition = (type?: number) => get(config._SEARCH_MEETING_CONDITION, { params: { type } })
 
 /**
  * 获得会议详情
@@ -99,13 +128,13 @@ export const favoriteItem = (meetingId: number) => post(config.FAVORITE_MEETING,
  * 退出会议
  * @param meetingId 
  */
-export const quitItem = (meetingId: number) => post(config.QUIT_MEETING + meetingId, { data: { type: 2 }, msg: '取消成功' })
+export const quitItem = (meetingId: number) => post(config.QUIT_MEETING +2+'/'+ meetingId,{ msg: '取消成功' })
 
 /**
  * 取消收藏会议
  * @param meetingId
  */
-export const quitFavorite = (meetingId: number) => post(config.QUIT_MEETING + meetingId, { data: { type: 3 }, msg: '取消成功' })
+export const quitFavorite = (meetingId: number) => post(config.QUIT_MEETING +3+'/'+meetingId, {  msg: '取消成功' })
 
 /**
  * 获取与自己相关的会议

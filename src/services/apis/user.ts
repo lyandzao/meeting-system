@@ -28,8 +28,7 @@ export const getMessage = () => get(config._GET_USER_NOTIFICATION)
  * @param userJson 用户信息
  * @param verificationCode 验证码
  */
-export const signup = (userJson: IuserJson, verificationCode: string) => post(config.SIGINUP, {
-  data: {
+export const signup = (userJson: IuserJson, verificationCode: string) => post(config.SIGNUP, {data: {
     userJson: encodeURIComponent(JSON.stringify(userJson)), verificationCode
   }
 })
@@ -74,8 +73,7 @@ export const uploadUserIcon = (formData: any) => {
  * 更新用户信息
  * @param userJson 
  */
-export const updateUser = (userJson: IuserJson) => post(config.UPDATA_USER_INFO,
-  {
+export const updateUser = (userJson: IuserJson) => post(config.UPDATE_USER_INFO,{
     data: { userJson: encodeURIComponent(JSON.stringify(userJson)) }
   })
 
@@ -85,7 +83,7 @@ export const updateUser = (userJson: IuserJson) => post(config.UPDATA_USER_INFO,
  * @param password 新密码
  * @param verificationCode 验证码
  */
-export const updatePwd = (mailAddr_or_Phone: string, password: string, verificationCode: string) => post(config.UPDATA_USER_PASSWORD, { data: { mailAddr_or_Phone, password, verificationCode } })
+export const updatePwd = (mailAddr_or_Phone: string, password: string, verificationCode: string) => post(config.UPDATE_USER_PASSWORD, { data: { mailAddr_or_Phone, password, verificationCode } })
 
 /**
  * 获得验证码

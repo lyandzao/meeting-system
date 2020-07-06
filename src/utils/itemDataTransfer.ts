@@ -21,7 +21,7 @@ export const transformItemList = (data: Iitem[]) => {
       id: item.meetingid,
       src: '',
       title: item.mName,
-      time: getTime(item.startTime, item.closeTime),
+      time: getTime(item.startTime, item.closeTime,true),
       favorite: false,
     }
   })
@@ -33,7 +33,7 @@ export const transformAwesomeItemList = (data: Iitem[], isMy: boolean) => {
       id: item.meetingid,
       src: '',
       title: item.mName,
-      time: getTime(item.startTime, item.closeTime),
+      time: getTime(item.startTime, item.closeTime,false),
       favorite: false,
       isMyItem:isMy,
     }

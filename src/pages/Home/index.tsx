@@ -51,6 +51,7 @@ function Home({ }: Props): ReactElement {
     }
   })
   const meetingListR = useRequest((page = 0) => getHomeItemList(page, PER_PAGE), {
+    cacheKey:'homeList',
     onSuccess: (result, params) => {
       if (result.data) {
         setMeetingList(transformItemList(result.data.meetings))

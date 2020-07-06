@@ -66,10 +66,8 @@ function Info(props: Props): ReactElement {
 
   const userInfoR = useRequest(getUserInfo, {
     onSuccess: (result, param) => {
-      console.log(result)
-      
       if (result.data) {
-        setAvatar(`http://www.ljhhhx.com:8080/meeting-v2/userIcon/${result.data.info.avatar}`)
+        setAvatar(`http://www.ljhhhx.com:8080/meeting/userIcon/${result.data.info.avatar}`)
         setGender(result.data.info.gender)
         name.setValue(result.data.info.username)
         mail.setValue(result.data.info.emailaddr)

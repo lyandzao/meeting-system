@@ -1,0 +1,39 @@
+.modal {
+  header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    li {
+      margin-left: 30px;
+      font-size: 20px;
+
+      &:nth-child(1) {
+        border-bottom: 2px solid #1890ff;
+      }
+    }
+  }
+
+  article {
+
+    .inlineContainer {
+      position: relative;
+
+
+
+      .form {
+        &>div {
+          margin: 2px;
+        }
+      }
+    }
+  }
+}
+
+.wrapper {
+  .btn {
+    text-align: center;
+    padding-left: 70px;
+    margin: 10px;
+  }
+}

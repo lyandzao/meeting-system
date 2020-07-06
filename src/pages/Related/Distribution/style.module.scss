@@ -1,0 +1,51 @@
+.container {
+  width: 100%;
+  min-width: 600px;
+  height: 276px;
+  background: rgba(253, 253, 253, 1);
+  border-radius: 5px;
+ padding: 12px 24px;
+  .header {
+    margin-bottom: 38px;
+    .tt {
+      color: rgba(118, 115, 115, 1);
+      font-size: 15px;
+
+      span {
+        color: rgba(29, 128, 211, 1);
+      }
+    }
+  }
+}
+
+table {
+  margin: 0 auto;
+  width: 400px;
+  // height: 180px;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 3px 15px 66px 0px rgba(117, 117, 117, 0.1);
+  border-radius: 5px;
+
+  tr:first {
+    border-radius: 5px 5px 0px 0px;
+  }
+
+  tr {
+    height: 24px;
+
+    th {
+      font-size: 10px;
+      width: 400px;
+      height: 24px;
+      background: rgba(242, 242, 242, 1);
+      color: rgba(118, 115, 115, 1);
+      text-align: center;
+    }
+
+    td {
+      font-size: 10px;
+      text-align: center;
+    }
+  }
+}
+

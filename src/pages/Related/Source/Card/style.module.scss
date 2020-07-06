@@ -1,0 +1,23 @@
+.container{
+  width:444px;
+  height:220px;
+  background:rgba(253, 253, 253, 1);
+  box-shadow:3px 15px 66px 0px rgba(117, 117, 117, 0.15);
+  border-radius:5px;
+  padding: 12px 25px;
+  // outline: 1px solid;
+  margin-top: 20px;
+}
+
+.form{
+  &>div{
+    margin-top: 10px;
+  }
+}
+
+.btn{
+  margin-top: 10px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-30%);
+}

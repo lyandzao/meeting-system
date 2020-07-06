@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 
 import { Spin, message } from 'antd';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { useImmer } from 'use-immer';
 
 import Input from '@/components/forms/Input/Input';
@@ -24,7 +24,7 @@ import {
   useRequest,
   useUnmount,
 } from '@umijs/hooks';
-import { download } from '@/utils'
+import { download,download2 } from '@/utils'
 import style from './style.module.scss';
 
 interface Props {
@@ -45,6 +45,7 @@ function File({ type }: Props): ReactElement {
   const _meetingId = Number(meetingId)
   const [roleType, setRoleType] = useState(0)
   const [fileStatus, setFileStatus] = useState(false)
+  const location = useLocation()
   const [info, setInfo] = useImmer<Iinfo>({
     mName: '',
     startTime: '',
@@ -73,7 +74,12 @@ function File({ type }: Props): ReactElement {
     onSuccess: (result, params) => {
       if (result.data) {
         const { relations, meeting, files } = result.data
-        if (relations.includes(relationType.created)) {
+        // if (relations.includes(relationType.created)) {
+        //   setRoleType(relationType.created)
+        // } else {
+        //   setRoleType(0)
+        // }
+        if (location.state) {
           setRoleType(relationType.created)
         } else {
           setRoleType(0)
@@ -105,13 +111,11 @@ function File({ type }: Props): ReactElement {
   const downloadFileR = useRequest((meetingId, fileName) => downloadFile(meetingId, fileName), {
     manual: true,
     onSuccess: (result, params) => {
-      if (result.code < 0) {
-        message.error(result.message)
-      } else {
-        download(result, params[1])
-      }
-    }
+      download(result, params[1])
+    },
   })
+
+
 
   const uploadFileR = useRequest((formData) => uploadFiles(formData), {
     manual: true,
@@ -165,7 +169,7 @@ function File({ type }: Props): ReactElement {
           meetingId={_meetingId}
           uploadFile={uploadFileR.run}
           deleteFile={deleteMyFileR.run}
-          downloadFile={downloadFileR.run}
+          downloadFile={(meetinfId,fileName)=>download2(meetingId as string,fileName)}
           refresh={meetingInfoR.refresh} />
       </div>
     </Spin>

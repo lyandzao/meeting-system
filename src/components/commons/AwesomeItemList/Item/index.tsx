@@ -45,7 +45,7 @@ function Item({ item }: Props): ReactElement {
   const history = useHistory()
 
   const handleClick = () => {
-    history.push(`/file/${item.id}`)
+    history.push(`/file/${item.id}`,{isMyItem:itemState.isMyItem})
   }
 
   return (

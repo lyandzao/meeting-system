@@ -43,7 +43,7 @@ function Related({ }: Props): ReactElement {
 
   return (
     <div className={style.container} >
-      <RelatedList jumpTo='related/info' title={'参与者'} loading={myAppliedItemR.loading} itemList={appliedList} errorHandle={myAppliedItemR.refresh}/>
+      <RelatedList jumpTo='info' title={'参与者'} loading={myAppliedItemR.loading} itemList={appliedList} errorHandle={myAppliedItemR.refresh}/>
       <RelatedList jumpTo='related/info' title={'发布者'} loading={myCreatedItemR.loading} itemList={createdList} errorHandle={myCreatedItemR.refresh}/>
       <RelatedList jumpTo='related/info' title={'志愿者'} loading={myVoluntedItemR.loading} itemList={voluntedList} errorHandle={myVoluntedItemR.refresh}/>
     </div>

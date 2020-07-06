@@ -101,6 +101,24 @@ const config: Iroute[] =
           component: lazy(() => import('@/pages/Related')),
         },
         {
+          path: '/source/:meetingId',
+          name: '导入资源',
+          requireAuth: true,
+          component:lazy(()=>import('@/pages/Related/Source'))
+        },
+        {
+          path: '/aircraft/:meetingId',
+          name: '接机',
+          requireAuth: true,
+          component:lazy(()=>import('@/pages/Related/Aircraft'))
+        },
+        {
+          path: '/accommodation/:meetingId',
+          name: '住宿',
+          requireAuth: true,
+          component:lazy(()=>import('@/pages/Related/Accommodation'))
+        },
+        {
           path: '/login',
           name: '登录/注册',
           component: LoginLayout,

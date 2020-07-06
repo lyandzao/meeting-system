@@ -33,9 +33,6 @@ interface Props {
 
 function Item({ item,jumpTo,btnShow }: Props): ReactElement {
   enum BtnColor { already = 'rgba(250,167,48,1)', lapse = 'rgba(159,158,157,1)' }
-  const [itemState, setItemState] = useImmer({
-    ...item
-  })
   const ifShowBtn=useBoolean(btnShow)
   const [BtnStatus, setBtnStatus] = useImmer({
     color: BtnColor.already,
@@ -49,15 +46,15 @@ function Item({ item,jumpTo,btnShow }: Props): ReactElement {
 
   return (
     <div className={style.container} onClick={handleClick}>
-      <img className={style.img} src={itemState.src || itemDefaultSrc} alt="" />
+      <img className={style.img} src={item.src || itemDefaultSrc} alt="" />
       <div className={style.titleBar}>
-        <div className={style.title}>{itemState.title}</div>
+        <div className={style.title}>{item.title}</div>
         <StarOutlined />
       </div>
       <div className={style.timeBar}>
         <div className={style.time}>
           <ClockCircleOutlined />
-          <div className={style.font}>{itemState.time}</div>
+          <div className={style.font}>{item.time}</div>
         </div>
         {ifShowBtn.state ? <Button {...BtnStatus} fontSize={8} className={style.btn} /> : null}
       </div>

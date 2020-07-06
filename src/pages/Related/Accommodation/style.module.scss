@@ -1,0 +1,12 @@
+.container {
+  margin-top: 24px;
+
+  &>div {
+    margin-bottom: 32px;
+  }
+}
+
+.btn {
+  left: 50%;
+  transform: translateX(-50%);
+}
