@@ -1,23 +1,23 @@
 export { default as checkStatus } from './checkStatus'
 
 // TODO: remember to fix getTime
-export function getTime(start: string, end: string,range?:boolean) {
- return range ? `${start}-->${end.slice(5)}`:start
+export function getTime(start: string, end: string, range?: boolean) {
+  return range ? `${start}-->${end.slice(5)}` : start
 }
 
-export const getType=(target: any) => {
-  return Object.prototype.toString.call(target).slice(8,-1)
+export const getType = (target: any) => {
+  return Object.prototype.toString.call(target).slice(8, -1)
 }
 
 export const isUndefined = (target: any) => {
-  return typeof(target)==='undefined'
+  return typeof (target) === 'undefined'
 }
 
 export const getSnapUrl = (target: string) => {
   return `/meeting-v2/${target}`
 }
 
-export const download2 = (meetingId:string, fileName: string) => {
+export const download2 = (meetingId: string, fileName: string) => {
   const a = document.createElement("a");
   const url = `http://www.ljhhhx.com:8080/meeting/file?meetingId=${meetingId}&fileName=${encodeURIComponent(fileName)}`
   const filename = fileName;

@@ -1,3 +1,10 @@
+/*
+ * @Author: zao
+ * @Date: 2020-05-07 14:28:21
+ * @LastEditors: zao
+ * @LastEditTime: 2020-08-13 10:21:49
+ * @Description:  入口文件
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -7,7 +14,6 @@ import auth from '@/store/auth';
 import systemMsg from '@/store/systemMsg';
 import composeContainer from '@/utils/composeContainer';
 import { UseAPIProvider } from '@umijs/use-request';
-
 
 import * as serviceWorker from './serviceWorker';
 

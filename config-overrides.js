@@ -4,17 +4,13 @@ const {
   overrideDevServer,
   fixBabelImports,
   disableEsLint,
-  addBundleVisualizer,
-  addWebpackPlugin,
-  addBabelPlugin
 } = require('customize-cra');
-const SpeedMeasure = require('speed-measure-webpack-plugin')
-const ProgressBarPlugin = require('progress-bar-webpack-plugin')
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
-const rewireReactHotLoader = require('react-app-rewire-hot-loader')
+const { addReactRefresh } = require("customize-cra-react-refresh")
 const path = require('path');
 
 const appPath = target => path.resolve(__dirname, target);
+
+// 配置devServer,代理
 const devServerConfig = () => config => {
   return {
     ...config,
@@ -33,22 +29,18 @@ const devServerConfig = () => config => {
 
 module.exports = {
   webpack: override(
-    (config, env) => {
-      config = rewireReactHotLoader(config, env)
-      return config
-    },
     addWebpackAlias({
       '@': appPath('src'),
       '~': appPath('src/assets')
     }),
     disableEsLint(),
-    // addBundleVisualizer(),
+    // react快速刷新,hmr
+    addReactRefresh(),
     fixBabelImports('import', {
       libraryName: 'antd',
       libraryDirectory: 'es',
       style: 'css',
     }),
-    // addWebpackPlugin(new HardSourceWebpackPlugin())
   ),
   devServer: overrideDevServer(
     devServerConfig()

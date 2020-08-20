@@ -1,6 +1,13 @@
+/*
+ * @Author: zao
+ * @Date: 2020-05-07 14:28:32
+ * @LastEditors: zao
+ * @LastEditTime: 2020-08-13 10:21:25
+ * @Description:  app
+ */
 import '@/styles/global.scss';
 
-import React, { ReactElement } from 'react';
+import React from 'react';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -8,39 +15,39 @@ import RenderRoutes from '@/components/commons/RenderRoutes';
 import {
   useAuth,
   useOnMount,
-  useOnUpdate
+  useOnUpdate,
 } from '@/hooks';
 import authContainer from '@/store/auth';
-// import { isUndefined } from '@/utils';
-import {isUndefined} from 'lodash'
-import systemMsgContainer from '@/store/systemMsg'
+import systemMsgContainer from '@/store/systemMsg';
+import { isUndefined } from '@/utils';
+
 import routesConfig from './config';
-import { hot } from 'react-hot-loader'
 
-interface Props {
-
-}
-
-
-function App({ }: Props): ReactElement {
+const App = () => {
+  // 全局登陆校验
   const auth = authContainer.useContainer()
-  const systemMsg=systemMsgContainer.useContainer()
+  // 右侧的信息提示
+  const systemMsg = systemMsgContainer.useContainer()
+  // 登陆后的身份token,jwt
   const token = useAuth()
+  // 在每次打开页面就去localstorage校验是否登陆
   useOnMount(() => {
     if (!isUndefined(token.token) && token.token !== '') {
-      auth.setIsLogin(true) 
+      auth.setIsLogin(true)
     }
   })
+  // 当登陆状态受到外部环境改变时,比如退出登陆,此时改变状态
   useOnUpdate(() => {
     if (auth.isLogin) {
       systemMsg.run()
     }
-  },[auth.isLogin])
+  }, [auth.isLogin])
   return (
     <Router>
-      <RenderRoutes routes={routesConfig} isLogin={auth.isLogin}/>
+      {/*把是否登陆注册到全局 */}
+      <RenderRoutes routes={routesConfig} isLogin={auth.isLogin} />
     </Router>
   )
 }
 
-export default process.env.NODE_ENV === 'development' ? hot(module)(App) : App
+export default App

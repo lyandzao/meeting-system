@@ -1,3 +1,10 @@
+/*
+ * @Author: zao
+ * @Date: 2020-05-07 14:28:32
+ * @LastEditors: zao
+ * @LastEditTime: 2020-08-13 10:52:37
+ * @Description:  全局样式
+ */
 * {
   margin: 0;
   padding: 0;
@@ -5,19 +12,24 @@
   li {
     list-style: none;
   }
-  a{
+
+  a {
     text-decoration: none;
+
     &:hover {
-    color: inherit;
-  }
+      color: inherit;
+    }
   }
 
-  input:focus,textarea:focus {
+  input:focus,
+  textarea:focus {
     outline: none;
     box-shadow: rgba(52, 71, 153, 0.2) 0 1px 5px 0px;
   }
-  button{
+
+  button {
     cursor: pointer;
+
     &:focus,
     &:active:focus,
     &.active:focus,
@@ -25,7 +37,7 @@
     &:active.focus,
     &.active.focus {
       outline: none;
-      border-color: transparent; 
+      border-color: transparent;
       box-shadow: none;
     }
   }
@@ -42,28 +54,25 @@ html {
 }
 
 body {
-  background-color: #FBF8FB!important;
+  background-color: #FBF8FB !important;
+
   &::-webkit-scrollbar {
     width: .5rem;
     height: 1rem;
   }
 
   &::-webkit-scrollbar-thumb {
-    // border-radius: .5rem;
     box-shadow: inset 0 0 5px rgba(128, 125, 125, 0.2);
     background: #afacac;
   }
 
   &::-webkit-scrollbar-track {
-    // box-shadow: inset 0 0 1px rgba(0, 0, 0, 0);
-    // border-radius: .4rem;
-    // background: #ccc;
     background-color: transparent;
   }
 }
+
 html {
   overflow: auto;
-  // min-height: 101%;
 }
 
 html {

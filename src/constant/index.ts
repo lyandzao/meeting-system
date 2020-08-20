@@ -1,13 +1,13 @@
-const normal={}
-// 会议类型
-export const meetingTypes = {
-  studentTeams: 6, //学生组队
-  researchTeams:5, // 科研团队
-}
+/*
+ * @Author: zao
+ * @Date: 2020-05-07 14:28:22
+ * @LastEditors: zao
+ * @LastEditTime: 2020-08-13 10:49:30
+ * @Description:  
+ */
+const normal = {}
 
 // 验证码需要等待的时间
 export const verificationWaitTime = 5
-
-export const uploadFilerUrl ='http://www.ljhhhx.com:8080/meeting-v2/file'
 
 export default normal

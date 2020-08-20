@@ -4,19 +4,27 @@
 import React, {
   FormEvent,
   ReactElement,
-  useState
+  useState,
 } from 'react';
 
-import { Spin, message, Modal } from 'antd';
+import {
+  message,
+  Modal,
+  Spin,
+} from 'antd';
 import { useParams } from 'react-router-dom';
 import { useImmer } from 'use-immer';
-import infoDetail from '@/assets/images/info_detail.png'
 
-import RadioGroup from '@/components/forms/RadioGroup'
+import infoDetail from '@/assets/images/info_detail.png';
 import Button from '@/components/commons/Button';
 import Input from '@/components/forms/Input/Input';
+import RadioGroup from '@/components/forms/RadioGroup';
 import Textarea from '@/components/forms/Textarea';
-import UploadInput from '@/components/forms/UploadInput'
+import {
+  deleteMyFile,
+  downloadFile,
+  uploadFiles,
+} from '@/services/apis/files';
 import {
   applyItem,
   favoriteItem,
@@ -25,22 +33,18 @@ import {
   quitFavorite,
   quitItem,
 } from '@/services/apis/item';
-import { uploadFiles, downloadFile, deleteMyFile } from '@/services/apis/files'
+import { download } from '@/utils';
 import {
+  InfoCircleOutlined,
+  LoadingOutlined,
   StarFilled,
   StarOutlined,
-  LoadingOutlined,
-  InfoCircleOutlined
 } from '@ant-design/icons';
-import {
-  useRequest,
-  useUnmount,
-} from '@umijs/hooks';
-import { download } from '@/utils'
-import TaskC from './Tasks'
-import GuestC from './Guest'
-import { meetingTypes } from '@/constant'
+import { useRequest } from '@umijs/hooks';
+
+import GuestC from './Guest';
 import style from './Info.module.scss';
+import TaskC from './Tasks';
 
 interface Props {
   type: number;

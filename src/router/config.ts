@@ -1,15 +1,14 @@
-/**
- * @ Author: zao
- * @ Create Time: 2020-03-18
- * @ Modified by: zao
- * @ Description: routes config
- * TODO: remember to delete the comments
+/*
+ * @Author: zao
+ * @Date: 2020-05-07 14:28:32
+ * @LastEditors: zao
+ * @LastEditTime: 2020-08-13 10:20:33
+ * @Description:  路由配置文件
  */
 
 import { lazy } from 'react';
 
 import BasicLayout from '@/layouts/BasicLayout';
-import BlankLayout from '@/layouts/BlankLayout';
 import CenterLayout from '@/layouts/CenterLayout';
 import LoginLayout from '@/layouts/LoginLayout';
 import MsgLayout from '@/layouts/MsgLayout';
@@ -91,7 +90,7 @@ const config: Iroute[] =
         {
           path: '/awesome',
           name: '精彩幻灯',
-          requireAuth:true,
+          requireAuth: true,
           component: lazy(() => import('@/pages/Awesome'))
         },
         {
@@ -104,19 +103,19 @@ const config: Iroute[] =
           path: '/source/:meetingId',
           name: '导入资源',
           requireAuth: true,
-          component:lazy(()=>import('@/pages/Related/Source'))
+          component: lazy(() => import('@/pages/Related/Source'))
         },
         {
           path: '/aircraft/:meetingId',
           name: '接机',
           requireAuth: true,
-          component:lazy(()=>import('@/pages/Related/Aircraft'))
+          component: lazy(() => import('@/pages/Related/Aircraft'))
         },
         {
           path: '/accommodation/:meetingId',
           name: '住宿',
           requireAuth: true,
-          component:lazy(()=>import('@/pages/Related/Accommodation'))
+          component: lazy(() => import('@/pages/Related/Accommodation'))
         },
         {
           path: '/login',

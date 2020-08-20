@@ -1,7 +1,12 @@
-import React, {
-  ReactElement,
-  useState,
-} from 'react';
+/*
+ * @Author: zao
+ * @Date: 2020-05-07 14:28:32
+ * @LastEditors: zao
+ * @LastEditTime: 2020-08-13 11:02:46
+ * @Description:  注册组件
+ * TODO: 用策略模式重写表单校验,分离ui和逻辑组件
+ */
+import React, { useState } from 'react';
 
 import { message } from 'antd';
 import {
@@ -11,28 +16,30 @@ import {
 import { useImmer } from 'use-immer';
 
 import Button from '@/components/commons/Button';
-import Avatar from '@/components/forms/Avatar';
 import Input from '@/components/forms/Input/Input';
 import RadioGroup from '@/components/forms/RadioGroup';
 import { useChange } from '@/hooks';
 import { signup } from '@/services/apis/user';
 import validate from '@/utils/validate';
-import { useRequest, useDebounceFn } from '@umijs/hooks';
+import {
+  useDebounceFn,
+  useRequest,
+} from '@umijs/hooks';
 
-import style from './Signup.module.scss';
+import style from './style.module.scss';
 
-interface Props {
-
-}
-
-function Signup({ }: Props): ReactElement {
-  // const [avatar, setAvatar] = useState()
+const Signup = () => {
+  // radio项
   const [gender, setGender] = useState<'男' | '女'>('男')
+
+  // 绑定表单项
   const name = useChange('')
   const pwd = useChange('')
   const confirmPwd = useChange('')
   const mail = useChange('')
   const phone = useChange('')
+
+  // 校验状态和校验信息
   const [isValidateRight, setIsValidateRight] = useState(false)
   const [validateMsg, setValidateMsg] = useImmer({
     userName: { msg: '最长不超过7个字符', warn: false, isRight: false },
@@ -41,8 +48,13 @@ function Signup({ }: Props): ReactElement {
     mail: { msg: '', warn: false, isRight: false },
     phone: { msg: '', warn: false, isRight: false },
   })
+
+  // 当前的history location,用于给注册页面发送之前填写的验证码
   const location: any = useLocation()
+  // history,用于注册成功后跳转
   const history = useHistory()
+
+  // 注册请求
   const signupR = useRequest(signup, {
     manual: true,
     onSuccess: (result, params) => {
@@ -191,6 +203,7 @@ function Signup({ }: Props): ReactElement {
     }
   }
 
+  // 做表单校防抖
   const validateName = useDebounceFn(validateForm.validateName, 300)
   const validatePwd = useDebounceFn(validateForm.validatePwd, 300)
   const validateConfirmPwd = useDebounceFn(validateForm.validateConfirmPwd, 300)
