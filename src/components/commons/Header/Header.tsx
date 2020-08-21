@@ -20,7 +20,7 @@ import {
   useHistory,
 } from 'react-router-dom';
 
-import Search from '@/components/commons/Search';
+import Search from '@/components/commons/Search'
 import { useAuth } from '@/hooks';
 import authContainer from '@/store/auth';
 
