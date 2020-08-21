@@ -6,5 +6,3 @@
   yarn
   yarn start
 ```
-
-2

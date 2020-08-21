@@ -1,3 +1,10 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 个人信息页面
+ */
+
 import React, {
   ReactElement,
   useState,
@@ -18,8 +25,6 @@ import {
   useAuth,
   useChange,
   useCountDown,
-  useOnMount,
-  useOnUpdate,
 } from '@/hooks';
 import {
   getUserInfo,
@@ -29,7 +34,7 @@ import {
   uploadUserIcon,
 } from '@/services/apis/user';
 import authContainer from '@/store/auth';
-import { useRequest, useDebounceFn } from '@umijs/hooks';
+import { useRequest, useDebounceFn,useUpdateEffect } from '@umijs/hooks';
 import { verificationWaitTime } from '@/constant'
 import style from './Info.module.scss';
 import { useImmer } from 'use-immer'
@@ -201,7 +206,7 @@ function Info(props: Props): ReactElement {
     if (typeof avatarFormdata.get('img') !== 'string') updateUserAvatarR.run(avatarFormdata)
     userInfoR.run()
   }
-  useOnUpdate(() => {
+  useUpdateEffect(() => {
     if (verificationStatus === true) {
       setVerificationValue(`重新发送验证码(${count})`)
     } else {

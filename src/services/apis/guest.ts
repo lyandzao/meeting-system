@@ -1,3 +1,10 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 关于嘉宾相关接口
+ */
+
 import * as config from './config'
 import { get, post,deleteFile } from '../axios'
 

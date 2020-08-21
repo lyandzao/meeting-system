@@ -1,3 +1,11 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 做倒计时倒数
+ */
+// TODO: 改用ref取代state
+
 import { useState } from 'react';
 
 const useCountdown = (

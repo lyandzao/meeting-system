@@ -10,7 +10,7 @@ import React, {
   useState,
 } from 'react';
 
-import { useOnMount, useOnUpdate } from '@/hooks'
+import {useUpdateEffect} from '@umijs/hooks'
 import style from './Avatar.module.scss';
 
 interface Props {
@@ -33,7 +33,7 @@ function Avatar({ msg, bind, className, initialData = '' }: Props): ReactElement
       };
     }
   }
-  useOnUpdate(() => {
+  useUpdateEffect(() => {
     if (typeof initialData === 'string') {
       setAvatar(initialData)
     } else {

@@ -1,3 +1,10 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 路由鉴权拦截组件
+ */
+
 import React, { ReactElement } from 'react'
 import { Button } from 'antd'
 

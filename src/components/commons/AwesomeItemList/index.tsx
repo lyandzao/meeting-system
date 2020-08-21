@@ -1,3 +1,10 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 精彩幻灯会议列表
+ */
+
 import React, { ReactElement } from 'react'
 import Item from './Item';
 import style from './style.module.scss'

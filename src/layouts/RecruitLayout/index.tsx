@@ -1,13 +1,18 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 会议发布的侧边消息布局
+ */
+
 import React, { ReactElement } from 'react';
 
 import { Spin } from 'antd'
 import SystemMsg from '@/components/commons/SystemMsg';
-import { Iroute } from '@/utils/renderRoutes';
 import systemMsgContainer from '@/store/systemMsg'
 import style from './RecruitLayout.module.scss';
 
 interface Props {
-  route: Iroute;
   children: React.ReactNode;
 }
 

@@ -1,3 +1,10 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 会议详细页面
+ */
+
 // TODO: remember to set request
 // TODO: remember to set UploadInput loadStatus
 

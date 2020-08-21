@@ -2,7 +2,7 @@
  * @ Author: zao
  * @ Create Time: 2020-03-20
  * @ Modified by: zao
- * @ Description: 全局各个单项比赛，发布的消息item
+ * @ Description: 全局各个单项会议，发布会议item
  */
 
 import React, {

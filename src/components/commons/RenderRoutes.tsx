@@ -1,3 +1,10 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 全局路由渲染
+ */
+
 import React, { Suspense, ReactElement } from 'react';
 
 import * as H from 'history';

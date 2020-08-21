@@ -1,9 +1,8 @@
 /**
  * @ Author: zao
- * @ Create Time: 2020-03-22
+ * @ Create Time: 2020-08-20 18:49:22
  * @ Modified by: zao
- * @ Description: 主页类别选择组件
- * TODO: remember to bind event
+ * @ Description: 主页类别bar
  */
 
 import React, {

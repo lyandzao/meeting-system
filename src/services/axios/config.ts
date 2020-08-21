@@ -1,3 +1,10 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 封装的axios，做一些配置处理和请求响应拦截
+ */
+
 import axios, {
   AxiosError,
   AxiosInstance,
@@ -39,12 +46,6 @@ const instance: AxiosInstance = axios.create({
  * @description 处理请求头
  */
 instance.interceptors.request.use((config: AxiosRequestConfig) => {
-  // let cancelToken = axios.CancelToken
-  // let source = cancelToken.source()
-  // if ((config as any).ifCanceled) {
-  //   config.cancelToken = source.token
-  //   source.cancel('cancel request')
-  // }
   let token = window.localStorage.getItem('user_token')
   config.headers = Object.assign(
     config.method === 'get'
@@ -58,7 +59,6 @@ instance.interceptors.request.use((config: AxiosRequestConfig) => {
     config.headers,
 
   )
-  // 测试token
   if (token) {
     config.headers['token'] = JSON.parse(token)
   }
@@ -68,7 +68,6 @@ instance.interceptors.request.use((config: AxiosRequestConfig) => {
       if (contentType.includes('multipart')) {
 
       } else if (contentType.includes('json')) {
-        // config.data=encodeURI(config.data)
         config.data = JSON.stringify(config.data)
       } else {
         config.data = qs.stringify(config.data)

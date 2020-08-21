@@ -1,10 +1,10 @@
-/*
- * @Author: zao
- * @Date: 2020-05-07 14:28:22
- * @LastEditors: zao
- * @LastEditTime: 2020-08-13 10:49:30
- * @Description:  
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 全局常量
  */
+
 const normal = {}
 
 // 验证码需要等待的时间

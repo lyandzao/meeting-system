@@ -1,3 +1,10 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 一些常用的工具函数
+ */
+
 export { default as checkStatus } from './checkStatus'
 
 // TODO: remember to fix getTime
@@ -26,6 +33,7 @@ export const download2 = (meetingId: string, fileName: string) => {
   a.click();
   window.URL.revokeObjectURL(url);
 }
+
 /**
  * 下载文件
  * @param content 文件流

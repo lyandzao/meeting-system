@@ -1,15 +1,20 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 个人中心布局，包含侧边bar和内容
+ */
+
 import React, { ReactElement } from 'react';
 
 import CenterBar from '@/components/bars/CenterBar';
-import { Iroute } from '@/utils/renderRoutes';
 import style from './CenterLayout.module.scss'
 
 interface Props {
-  route: Iroute;
   children: React.ReactNode;
 }
 
-function CenterLayout({ route, children }: Props): ReactElement {
+function CenterLayout({ children }: Props): ReactElement {
   return (
     <div className={style.container}>
       <CenterBar className={style.left}/>

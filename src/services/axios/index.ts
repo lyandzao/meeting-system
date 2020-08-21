@@ -1,5 +1,12 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 封装的请求方法
+ */
+
 import { message } from 'antd';
-import axios, { AxiosRequestConfig } from 'axios';
+import { AxiosRequestConfig } from 'axios';
 
 import instance from './config';
 
@@ -16,35 +23,15 @@ const errorHandler = (res: any) => {
   }
 }
 
-
 const request = async (opt: Iopt) => {
-  // let cancelToken = axios.CancelToken
-  // let source = cancelToken.source()
-  // if ((config as any).ifCanceled) {
-  //   config.cancelToken = source.token
-  //   source.cancel('cancel request')
-  // }
-
   const options: Iopt = {
     method: 'get',
     ifHandleError: true,
     ifCanceled: false,
-    // cancelToken: source.token,
     ...opt
   }
-  // options.baseURL = envUrl()
-
-  // const cancelReq = () => {
-  //   options.ifCanceled = true
-  //   source.cancel('cancel request')
-  // }
-
   try {
-
     const res = await instance(options);
-    // if (res.code < 0 && options.ifHandleError) {
-    //   message.error(res)
-    // }
     if (options.ifHandleError) {
       errorHandler(res)
     }

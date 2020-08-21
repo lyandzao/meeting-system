@@ -3,7 +3,6 @@
  * @ Create Time: 2020-03-23
  * @ Modified by: zao
  * @ Description: 封装的antd的上传文件组件
- * TODO: remember to change the action url
  */
 
 import React, {
@@ -12,11 +11,6 @@ import React, {
   FormEvent,
 } from 'react';
 
-import { Upload, Spin } from 'antd';
-import { UPLOAD_FILE } from '@/services/apis/config'
-import { uploadFiles } from '@/services/apis/files'
-import { useRequest, useUpdate } from '@umijs/hooks'
-import { useOnUpdate } from '@/hooks'
 import { CloseOutlined, DownloadOutlined } from '@ant-design/icons'
 
 import style from './UploadInput.module.scss';

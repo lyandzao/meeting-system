@@ -4,8 +4,9 @@
  * @LastEditors: zao
  * @LastEditTime: 2020-08-13 11:02:46
  * @Description:  注册组件
- * TODO: 用策略模式重写表单校验,分离ui和逻辑组件
  */
+// TODO: 用策略模式重写表单校验,分离ui和逻辑组件
+
 import React, { useState } from 'react';
 
 import { message } from 'antd';

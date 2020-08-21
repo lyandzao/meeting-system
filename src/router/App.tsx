@@ -14,13 +14,11 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import RenderRoutes from '@/components/commons/RenderRoutes';
 import {
   useAuth,
-  useOnMount,
-  useOnUpdate,
 } from '@/hooks';
 import authContainer from '@/store/auth';
 import systemMsgContainer from '@/store/systemMsg';
 import { isUndefined } from '@/utils';
-
+import {useMount,useUpdateEffect} from '@umijs/hooks'
 import routesConfig from './config';
 
 const App = () => {
@@ -31,13 +29,13 @@ const App = () => {
   // 登陆后的身份token,jwt
   const token = useAuth()
   // 在每次打开页面就去localstorage校验是否登陆
-  useOnMount(() => {
+  useMount(() => {
     if (!isUndefined(token.token) && token.token !== '') {
       auth.setIsLogin(true)
     }
   })
   // 当登陆状态受到外部环境改变时,比如退出登陆,此时改变状态
-  useOnUpdate(() => {
+  useUpdateEffect(() => {
     if (auth.isLogin) {
       systemMsg.run()
     }

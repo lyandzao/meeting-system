@@ -1,3 +1,10 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 嘉宾单项
+ */
+
 import React, { ReactElement } from 'react'
 import style from './style.module.scss'
 import {

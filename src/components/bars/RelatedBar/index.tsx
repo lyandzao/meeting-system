@@ -1,3 +1,10 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 我的会议bar
+ */
+
 import React, { ReactElement } from 'react'
 import { NavLink,useParams } from 'react-router-dom'
 import style from './style.module.scss'

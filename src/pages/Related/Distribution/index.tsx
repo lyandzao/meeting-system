@@ -1,3 +1,10 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: car或者room的详情
+ */
+
 import React, { ReactElement } from 'react'
 import style from './style.module.scss'
 import Button from '@/components/commons/Button'

@@ -1,3 +1,10 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 加载失败，重试组件
+ */
+
 import React, { ReactElement } from 'react'
 import {SyncOutlined} from '@ant-design/icons'
 import style from './Retry.module.scss'

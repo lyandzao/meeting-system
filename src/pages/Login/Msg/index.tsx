@@ -1,3 +1,10 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 短信登陆
+ */
+
 import React, {
   ReactElement,
   useState,
@@ -8,10 +15,9 @@ import Button from '@/components/login/LoginButton';
 import Input from '@/components/login/LoginInput';
 import {
   useCountDown,
-  useOnUpdate,
   useChange
 } from '@/hooks';
-import { useRequest,useDebounceFn } from '@umijs/hooks'
+import { useRequest,useDebounceFn,useUpdateEffect } from '@umijs/hooks'
 import { getVerificationCode } from '@/services/apis/user'
 import validate from '@/utils/validate'
 import { useImmer } from 'use-immer'
@@ -39,7 +45,7 @@ function Msg({ }: Props): ReactElement {
   const getVerificationCodeR = useRequest(getVerificationCode, {
     manual: true,
   })
-  useOnUpdate(() => {
+  useUpdateEffect(() => {
     if (verificationStatus === true) {
       setVerificationValue(`重新发送验证码(${count})`)
     } else {

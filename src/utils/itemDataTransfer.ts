@@ -1,3 +1,10 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 对响应数据做数据转换
+ */
+
 import { getTime } from './index'
 
 export interface Iitem {

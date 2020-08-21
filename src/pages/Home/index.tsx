@@ -1,3 +1,10 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 主页
+ */
+
 // TODO: remember to set item total number
 
 import React, {
@@ -24,7 +31,6 @@ import {
 
 
 import style from './Home.module.scss';
-import { useOnMount } from '@/hooks';
 
 interface Props {
 

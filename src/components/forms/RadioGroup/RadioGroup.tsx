@@ -6,7 +6,7 @@
  */
 
 import React, { ReactElement, useState } from 'react';
-import { useOnUpdate } from '@/hooks'
+import {useUpdateEffect} from '@umijs/hooks'
 import style from './RadioGroup.module.scss';
 
 interface Props {
@@ -22,7 +22,7 @@ function RadioGroup({ name, radioList, bind, initialData = radioList[0] }: Props
     bind(e.target.value)
     setCheckedTarget(e.target.value)
   }
-  useOnUpdate(() => {
+  useUpdateEffect(() => {
     setCheckedTarget(initialData)
   }, [initialData])
   return (

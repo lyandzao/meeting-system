@@ -1,4 +1,4 @@
-/*
+/** 
  * @Author: zao
  * @Date: 2020-05-07 14:28:32
  * @LastEditors: zao
@@ -13,7 +13,7 @@ import CenterLayout from '@/layouts/CenterLayout';
 import LoginLayout from '@/layouts/LoginLayout';
 import MsgLayout from '@/layouts/MsgLayout';
 import RecruitLayout from '@/layouts/RecruitLayout';
-import { Iroute } from '@/utils/renderRoutes';
+import { Iroute } from '@/components/commons/RenderRoutes';
 
 const config: Iroute[] =
   [
@@ -56,7 +56,7 @@ const config: Iroute[] =
               path: '/file/:meetingId',
               exact: true,
               name: '会议详情',
-              component: lazy(() => import('@/pages/File')),
+              component: lazy(() => import('@/components/commons/File')),
             }
           ]
         },

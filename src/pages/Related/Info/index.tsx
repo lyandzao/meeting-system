@@ -1,3 +1,10 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 展示详情的信息
+ */
+
 import React, { ReactElement } from 'react'
 import InfoHeader from '@/pages/Home/Info/Header'
 import RelatedBar from '@/components/bars/RelatedBar'

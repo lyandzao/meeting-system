@@ -1,3 +1,10 @@
+/**
+ * @ Author: zao
+ * @ Create Time: 2020-08-20 18:49:22
+ * @ Modified by: zao
+ * @ Description: 全局的系统消息
+ */
+
 import { useState } from 'react'
 import { createContainer } from "unstated-next"
 import { getMessage, IuserMsg } from '@/services/apis/user'
